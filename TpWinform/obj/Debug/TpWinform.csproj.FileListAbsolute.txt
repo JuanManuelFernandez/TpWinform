@@ -1,0 +1,10 @@
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\bin\Debug\TpWinform.exe.config
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\bin\Debug\TpWinform.exe
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\bin\Debug\TpWinform.pdb
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\obj\Debug\TpWinform.csproj.AssemblyReference.cache
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\obj\Debug\TpWinform.Form1.resources
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\obj\Debug\TpWinform.Properties.Resources.resources
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\obj\Debug\TpWinform.csproj.GenerateResource.cache
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\obj\Debug\TpWinform.csproj.CoreCompileInputs.cache
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\obj\Debug\TpWinform.exe
+C:\Users\juanm\Desktop\ProyectosIni\Winforms\PrimerTpWinform\TpWinform\obj\Debug\TpWinform.pdb
