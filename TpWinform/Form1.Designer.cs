@@ -132,6 +132,7 @@
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(100, 20);
             this.TxtName.TabIndex = 9;
+            this.TxtName.TextChanged += new System.EventHandler(this.TxtName_TextChanged);
             // 
             // TxtDescrip
             // 
@@ -155,6 +156,7 @@
             this.ButtonAgregar.TabIndex = 14;
             this.ButtonAgregar.Text = "Agregar";
             this.ButtonAgregar.UseVisualStyleBackColor = true;
+            this.ButtonAgregar.Click += new System.EventHandler(this.ButtonAgregar_Click);
             // 
             // ButtonListar
             // 
@@ -209,6 +211,7 @@
             this.ListMain.Size = new System.Drawing.Size(1006, 252);
             this.ListMain.TabIndex = 20;
             this.ListMain.UseCompatibleStateImageBehavior = false;
+            this.ListMain.SelectedIndexChanged += new System.EventHandler(this.ListMain_SelectedIndexChanged);
             // 
             // ButtonImage
             // 
@@ -227,6 +230,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(320, 171);
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
