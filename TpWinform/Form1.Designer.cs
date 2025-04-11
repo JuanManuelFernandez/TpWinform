@@ -1,6 +1,6 @@
 ﻿namespace TpWinform
 {
-    partial class Form1
+    partial class FrmVentanaPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -53,48 +53,59 @@
             // 
             // LbCodigo
             // 
+            this.LbCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbCodigo.AutoSize = true;
-            this.LbCodigo.Location = new System.Drawing.Point(249, 13);
+            this.LbCodigo.Location = new System.Drawing.Point(29, 22);
             this.LbCodigo.Name = "LbCodigo";
             this.LbCodigo.Size = new System.Drawing.Size(40, 13);
             this.LbCodigo.TabIndex = 1;
             this.LbCodigo.Text = "Codigo";
-            this.LbCodigo.Click += new System.EventHandler(this.label1_Click);
             // 
             // LbName
             // 
+            this.LbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbName.AutoSize = true;
-            this.LbName.Location = new System.Drawing.Point(249, 39);
+            this.LbName.Location = new System.Drawing.Point(29, 48);
             this.LbName.Name = "LbName";
             this.LbName.Size = new System.Drawing.Size(44, 13);
             this.LbName.TabIndex = 2;
             this.LbName.Text = "Nombre";
-            this.LbName.Click += new System.EventHandler(this.label2_Click);
             // 
             // LbDescrip
             // 
+            this.LbDescrip.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbDescrip.AutoSize = true;
-            this.LbDescrip.Location = new System.Drawing.Point(248, 68);
+            this.LbDescrip.Location = new System.Drawing.Point(28, 77);
             this.LbDescrip.Name = "LbDescrip";
             this.LbDescrip.Size = new System.Drawing.Size(63, 13);
             this.LbDescrip.TabIndex = 3;
             this.LbDescrip.Text = "Descripción";
-            this.LbDescrip.Click += new System.EventHandler(this.label3_Click);
             // 
             // LbMarca
             // 
+            this.LbMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbMarca.AutoSize = true;
-            this.LbMarca.Location = new System.Drawing.Point(248, 100);
+            this.LbMarca.Location = new System.Drawing.Point(28, 109);
             this.LbMarca.Name = "LbMarca";
             this.LbMarca.Size = new System.Drawing.Size(37, 13);
             this.LbMarca.TabIndex = 4;
             this.LbMarca.Text = "Marca";
-            this.LbMarca.Click += new System.EventHandler(this.label4_Click);
             // 
             // LbCateg
             // 
+            this.LbCateg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbCateg.AutoSize = true;
-            this.LbCateg.Location = new System.Drawing.Point(248, 131);
+            this.LbCateg.Location = new System.Drawing.Point(28, 140);
             this.LbCateg.Name = "LbCateg";
             this.LbCateg.Size = new System.Drawing.Size(54, 13);
             this.LbCateg.TabIndex = 5;
@@ -102,8 +113,11 @@
             // 
             // LbPrecio
             // 
+            this.LbPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbPrecio.AutoSize = true;
-            this.LbPrecio.Location = new System.Drawing.Point(248, 166);
+            this.LbPrecio.Location = new System.Drawing.Point(28, 175);
             this.LbPrecio.Name = "LbPrecio";
             this.LbPrecio.Size = new System.Drawing.Size(37, 13);
             this.LbPrecio.TabIndex = 6;
@@ -111,8 +125,11 @@
             // 
             // LbImagen
             // 
+            this.LbImagen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LbImagen.AutoSize = true;
-            this.LbImagen.Location = new System.Drawing.Point(248, 203);
+            this.LbImagen.Location = new System.Drawing.Point(28, 212);
             this.LbImagen.Name = "LbImagen";
             this.LbImagen.Size = new System.Drawing.Size(42, 13);
             this.LbImagen.TabIndex = 7;
@@ -120,44 +137,46 @@
             // 
             // TxtCod
             // 
-            this.TxtCod.Location = new System.Drawing.Point(318, 6);
+            this.TxtCod.Location = new System.Drawing.Point(98, 15);
             this.TxtCod.Name = "TxtCod";
-            this.TxtCod.Size = new System.Drawing.Size(100, 20);
+            this.TxtCod.Size = new System.Drawing.Size(248, 20);
             this.TxtCod.TabIndex = 8;
-            this.TxtCod.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // TxtName
             // 
-            this.TxtName.Location = new System.Drawing.Point(318, 32);
+            this.TxtName.Location = new System.Drawing.Point(98, 45);
             this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(100, 20);
+            this.TxtName.Size = new System.Drawing.Size(248, 20);
             this.TxtName.TabIndex = 9;
             // 
             // TxtDescrip
             // 
-            this.TxtDescrip.Location = new System.Drawing.Point(318, 61);
+            this.TxtDescrip.Location = new System.Drawing.Point(98, 74);
             this.TxtDescrip.Name = "TxtDescrip";
-            this.TxtDescrip.Size = new System.Drawing.Size(100, 20);
+            this.TxtDescrip.Size = new System.Drawing.Size(248, 20);
             this.TxtDescrip.TabIndex = 10;
             // 
             // TxtPrecio
             // 
-            this.TxtPrecio.Location = new System.Drawing.Point(318, 159);
+            this.TxtPrecio.Location = new System.Drawing.Point(98, 172);
             this.TxtPrecio.Name = "TxtPrecio";
-            this.TxtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.TxtPrecio.Size = new System.Drawing.Size(248, 20);
             this.TxtPrecio.TabIndex = 13;
             // 
             // ButtonAgregar
             // 
+            this.ButtonAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonAgregar.Location = new System.Drawing.Point(670, 221);
             this.ButtonAgregar.Name = "ButtonAgregar";
             this.ButtonAgregar.Size = new System.Drawing.Size(75, 23);
             this.ButtonAgregar.TabIndex = 14;
             this.ButtonAgregar.Text = "Agregar";
             this.ButtonAgregar.UseVisualStyleBackColor = true;
+            this.ButtonAgregar.Click += new System.EventHandler(this.ButtonAgregar_Click);
             // 
             // ButtonListar
             // 
+            this.ButtonListar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonListar.Location = new System.Drawing.Point(751, 221);
             this.ButtonListar.Name = "ButtonListar";
             this.ButtonListar.Size = new System.Drawing.Size(75, 23);
@@ -167,6 +186,7 @@
             // 
             // ButtonMod
             // 
+            this.ButtonMod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonMod.Location = new System.Drawing.Point(833, 220);
             this.ButtonMod.Name = "ButtonMod";
             this.ButtonMod.Size = new System.Drawing.Size(75, 23);
@@ -176,6 +196,7 @@
             // 
             // ButtonEliminar
             // 
+            this.ButtonEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonEliminar.Location = new System.Drawing.Point(915, 219);
             this.ButtonEliminar.Name = "ButtonEliminar";
             this.ButtonEliminar.Size = new System.Drawing.Size(75, 23);
@@ -186,35 +207,37 @@
             // CmbMarca
             // 
             this.CmbMarca.FormattingEnabled = true;
-            this.CmbMarca.Location = new System.Drawing.Point(318, 97);
+            this.CmbMarca.Location = new System.Drawing.Point(98, 106);
             this.CmbMarca.Name = "CmbMarca";
-            this.CmbMarca.Size = new System.Drawing.Size(100, 21);
+            this.CmbMarca.Size = new System.Drawing.Size(248, 21);
             this.CmbMarca.TabIndex = 18;
-            this.CmbMarca.SelectedIndexChanged += new System.EventHandler(this.CmbMarca_SelectedIndexChanged);
             // 
             // CmbCateg
             // 
             this.CmbCateg.FormattingEnabled = true;
-            this.CmbCateg.Location = new System.Drawing.Point(318, 128);
+            this.CmbCateg.Location = new System.Drawing.Point(98, 137);
             this.CmbCateg.Name = "CmbCateg";
-            this.CmbCateg.Size = new System.Drawing.Size(100, 21);
+            this.CmbCateg.Size = new System.Drawing.Size(248, 21);
             this.CmbCateg.TabIndex = 19;
-            this.CmbCateg.SelectedIndexChanged += new System.EventHandler(this.CmbCateg_SelectedIndexChanged);
             // 
             // ListMain
             // 
+            this.ListMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ListMain.HideSelection = false;
             this.ListMain.Location = new System.Drawing.Point(12, 261);
             this.ListMain.Name = "ListMain";
             this.ListMain.Size = new System.Drawing.Size(1006, 252);
             this.ListMain.TabIndex = 20;
             this.ListMain.UseCompatibleStateImageBehavior = false;
+            this.ListMain.View = System.Windows.Forms.View.SmallIcon;
             // 
             // ButtonImage
             // 
-            this.ButtonImage.Location = new System.Drawing.Point(318, 198);
+            this.ButtonImage.Location = new System.Drawing.Point(98, 207);
             this.ButtonImage.Name = "ButtonImage";
-            this.ButtonImage.Size = new System.Drawing.Size(75, 23);
+            this.ButtonImage.Size = new System.Drawing.Size(248, 23);
             this.ButtonImage.TabIndex = 21;
             this.ButtonImage.Text = "Cargar";
             this.ButtonImage.UseVisualStyleBackColor = true;
@@ -222,13 +245,14 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(670, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 171);
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // FrmVentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -253,9 +277,8 @@
             this.Controls.Add(this.LbDescrip);
             this.Controls.Add(this.LbName);
             this.Controls.Add(this.LbCodigo);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "FrmVentanaPrincipal";
+            this.Text = "Comercio";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

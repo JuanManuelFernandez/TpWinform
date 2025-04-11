@@ -10,56 +10,12 @@ using System.Windows.Forms;
 
 namespace TpWinform
 {
-    public partial class Form1 : Form
+    public partial class FrmVentanaPrincipal : Form
     {
-        public Form1()
+
+        public FrmVentanaPrincipal()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            CmbMarca.Items.Add("Nike");
-            CmbMarca.Items.Add("Adidas");
-            CmbMarca.Items.Add("Puma");
-            CmbMarca.Items.Add("Android");
-            CmbMarca.Items.Add("Apple");
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CmbMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void CmbCateg_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void ButtonImage_Click(object sender, EventArgs e)
@@ -73,5 +29,24 @@ namespace TpWinform
             }
             */
         }
+
+        private void ButtonAgregar_Click(object sender, EventArgs e)
+        {
+            FrmAgregar ventana = new FrmAgregar(this);
+            ventana.ShowDialog();
+        }
+
+        public void AgregarListMain(FrmAgregar.Articulo articulo) {
+            ListViewItem item = new ListViewItem();
+            item.SubItems.Add(articulo.IDCodigo.ToString());
+            item.SubItems.Add(articulo.Nombre);
+            item.SubItems.Add(articulo.Descripcion);
+            item.SubItems.Add(articulo.Marca);
+            item.SubItems.Add(articulo.Categoria);
+            item.SubItems.Add(articulo.Precio.ToString());
+
+            ListMain.Items.Add(item);
+        }
+
     }
 }
