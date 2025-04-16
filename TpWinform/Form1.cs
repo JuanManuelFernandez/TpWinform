@@ -7,129 +7,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BaseDeDatos;
+using Articulos;
 
 namespace TpWinform
 {
-    public partial class Form1 : Form
+    public partial class frmPrincipal : Form
     {
-        public Form1()
+
+        private List<Articulo> articulos;
+        public frmPrincipal()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //MARCA
-            CmbMarca.Items.Add("Nike");
-            CmbMarca.Items.Add("Adidas");
-            CmbMarca.Items.Add("Puma");
-            CmbMarca.Items.Add("Android");
-            CmbMarca.Items.Add("Apple");
-            //CATEGIORIA
-            CmbCateg.Items.Add("Zapatilla");
-            CmbCateg.Items.Add("Celular");
+            frmAgregar frm = new frmAgregar();
+            frm.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            frmAgregar frm = new frmAgregar();
+            frm.Text = "Modificar";
+            frm.ShowDialog();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CmbMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void CmbCateg_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ButtonImage_Click(object sender, EventArgs e)
-        {
-            /*
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+        private void cargarDatos() { 
+            CatalogoArticulo ejemplo = new CatalogoArticulo();
+            try
             {
-                string fileName = openFileDialog1.FileName;
-                // Do something with the file name
+                articulos = ejemplo.listar();
+                dgvDatos.DataSource = articulos;
+                cargarImagen(articulos[0].Imagen);
             }
-            */
-        }
-
-        //FUNCIONES PARA AGREGAR REGISTROS
-        private void AgregarElementoTxt(System.Windows.Forms.TextBox txt, System.Windows.Forms.ListView lista)
-        {
-            // Agrega el texto del TextBox al ListBox
-            if (txt != null)
+            catch (Exception er)
             {
-                lista.Items.Add(txt.Text);
-
-                // Limpia el TextBox después de agregar el elemento
-                txt.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Los campos no pueden estar vacios"); 
+                MessageBox.Show(er.ToString());
             }
         }
-        private void AgregarElementoSelc(System.Windows.Forms.ComboBox elemento, System.Windows.Forms.ListView lista)
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            if (elemento.SelectedItem != null)
+            cargarDatos();
+        }
+
+        public void cargarImagen(string imagen) {
+            try
             {
-                lista.Items.Add(elemento.SelectedItem.ToString());
-
-                elemento.SelectedIndex = -1;
+                pbxImg.Load(imagen);
             }
-            else
+            catch (Exception er)
             {
-                MessageBox.Show("Los campos no pueden estar vacios");
+
+                pbxImg.Load("https://img.freepik.com/vector-premium/imagen-no-es-conjunto-iconos-disponibles-simbolo-vectorial-stock-fotos-faltante-defecto-estilo-relleno-delineado-negro-signo-no-encontro-imagen_268104-6708.jpg");
             }
         }
-        private void ButtonAgregar_Click(object sender, EventArgs e)
+
+        private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
-            AgregarElementoTxt(TxtCod, ListMain);
-            AgregarElementoTxt(TxtName, ListMain);
-            AgregarElementoTxt(TxtDescrip, ListMain);
-            AgregarElementoSelc(CmbMarca, ListMain);
-            AgregarElementoSelc(CmbCateg, ListMain);
-            AgregarElementoTxt(TxtPrecio, ListMain);
-        }
-
-        private void ListMain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            if (dgvDatos.CurrentRow != null) {
+                Articulo aux = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
+                cargarImagen(aux.Imagen);
+            }
         }
     }
 }
