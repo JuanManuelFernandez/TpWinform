@@ -44,7 +44,9 @@ namespace BaseDeDatos
         }
 
         public void EjecutarNonQuery() {
+
             comando.Connection = conexion;
+
             try
             {
                 conexion.Open();

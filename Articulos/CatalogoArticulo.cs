@@ -50,7 +50,7 @@ namespace Articulos
             datos.Cerrar();
             return articulos;
         }
-        public void agregarArticulo(Articulo aux) {
+        public void agregarArticulo(Articulo aux) { 
             CatalogoArticulo articulo = new CatalogoArticulo();
             List<Articulo> art = new List<Articulo>(); 
             try
@@ -80,6 +80,31 @@ namespace Articulos
             }
             finally {
                 datos.Cerrar();
+            }
+        }
+        public void EliminarArticulo(int id)
+        {
+            try
+            {
+                Catalogo datos = new Catalogo();
+                datos.Conectar();
+                datos.Consultar("DELETE FROM ARTICULOS WHERE ID = @IdArticulo");
+                datos.setearParametro("IdArticulo", id);
+                datos.EjecutarNonQuery();
+
+                datos.Cerrar();
+
+                datos.Conectar();
+                datos.Consultar("DELETE FROM IMAGENES WHERE IdArticulo = @IdArticulo");
+                datos.setearParametro("IdArticulo", id);
+                datos.EjecutarNonQuery();
+
+                datos.Cerrar();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

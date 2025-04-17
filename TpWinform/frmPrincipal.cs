@@ -27,8 +27,8 @@ namespace TpWinform
             {
                 articulos = ejemplo.listar();
                 dgvDatos.DataSource = articulos;
-                cargarImagen(articulos[0].Imagen);
                 ocultarColumnas();
+                //CARGAR IMAGEN "NO PHOTO" CUANDO NO HAY DATOS CARGADOS
             }
             catch (Exception er)
             {
@@ -43,7 +43,6 @@ namespace TpWinform
             }
             catch (Exception)
             {
-
                 pbxImg.Load("https://img.freepik.com/vector-premium/imagen-no-es-conjunto-iconos-disponibles-simbolo-vectorial-stock-fotos-faltante-defecto-estilo-relleno-delineado-negro-signo-no-encontro-imagen_268104-6708.jpg");
             }
         }
@@ -60,30 +59,53 @@ namespace TpWinform
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Articulo seleccion = new Articulo();
-            seleccion = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
-            frmAgregar frm = new frmAgregar(seleccion);
-            frm.Text = "Modificar";
-            frm.ShowDialog();
+            if (dgvDatos.CurrentRow != null)
+            {
+                Articulo seleccion = new Articulo();
+                seleccion = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
+                frmAgregar frm = new frmAgregar(seleccion);
+                frm.Text = "Modificar";
+                frm.ShowDialog();
+            }
+            else 
+            {
+                MessageBox.Show(("NO HAY NADA SELECCIONAD"));
+            }
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarDatos();
-            btnModificar.Enabled = false;
-            btnEliminar.Enabled = false;
         }
         private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvDatos.CurrentRow != null) {
-                Articulo aux = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
-                cargarImagen(aux.Imagen);
-            }
+            Articulo aux = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
+            cargarImagen(aux.Imagen);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
             if (dgvDatos.CurrentRow != null)
             {
-                btnModificar.Enabled = true;
-                btnEliminar.Enabled = true;
+                CatalogoArticulo Articulo = new CatalogoArticulo();
+                Articulo seleccionado;
+                try
+                {
+                    seleccionado = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
+                    Articulo.EliminarArticulo(seleccionado.ID);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
+            else
+            {
+                MessageBox.Show(("NO HAY NADA SELECCIONAD"));
+            }
+            cargarDatos();
+            
         }
     }
 }

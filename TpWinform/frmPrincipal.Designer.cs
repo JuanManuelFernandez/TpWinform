@@ -33,9 +33,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.cmbBuscar1 = new System.Windows.Forms.ComboBox();
-            this.cmbBuscar2 = new System.Windows.Forms.ComboBox();
             this.pbxImg = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).BeginInit();
@@ -81,40 +78,16 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(692, 263);
+            this.btnBuscar.Location = new System.Drawing.Point(712, 179);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 0;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(666, 237);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(121, 20);
-            this.txtBuscar.TabIndex = 7;
-            // 
-            // cmbBuscar1
-            // 
-            this.cmbBuscar1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBuscar1.FormattingEnabled = true;
-            this.cmbBuscar1.Location = new System.Drawing.Point(666, 179);
-            this.cmbBuscar1.Name = "cmbBuscar1";
-            this.cmbBuscar1.Size = new System.Drawing.Size(121, 21);
-            this.cmbBuscar1.TabIndex = 5;
-            // 
-            // cmbBuscar2
-            // 
-            this.cmbBuscar2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBuscar2.FormattingEnabled = true;
-            this.cmbBuscar2.Location = new System.Drawing.Point(666, 206);
-            this.cmbBuscar2.Name = "cmbBuscar2";
-            this.cmbBuscar2.Size = new System.Drawing.Size(121, 21);
-            this.cmbBuscar2.TabIndex = 6;
             // 
             // pbxImg
             // 
@@ -131,9 +104,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 302);
             this.Controls.Add(this.pbxImg);
-            this.Controls.Add(this.cmbBuscar2);
-            this.Controls.Add(this.cmbBuscar1);
-            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -146,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -157,9 +126,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.ComboBox cmbBuscar1;
-        private System.Windows.Forms.ComboBox cmbBuscar2;
         private System.Windows.Forms.PictureBox pbxImg;
     }
 }

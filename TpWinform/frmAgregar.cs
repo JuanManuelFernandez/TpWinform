@@ -51,6 +51,8 @@ namespace TpWinform
             nuevo.Precio = Decimal.Parse(txtPrecio.Text);
 
             datos.agregarArticulo(nuevo);
+
+            Close();
         }
 
         private void cargarImagen(string URL) {
