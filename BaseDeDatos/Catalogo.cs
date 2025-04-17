@@ -43,7 +43,7 @@ namespace BaseDeDatos
             }
         }
 
-        public void EjecturarNonQuery() {
+        public void EjecutarNonQuery() {
             comando.Connection = conexion;
             try
             {
@@ -63,5 +63,33 @@ namespace BaseDeDatos
             }
             conexion.Close();
         }
+
+        /// Validaciones NULL
+        public string validarNullString(object Rdr)
+        {
+            if (Rdr is DBNull)
+            {
+                return string.Empty;
+            }
+            return (String)Rdr;
+        }
+        public System.Decimal validarNullDecimal(object Rdr)
+        {
+            if (Rdr is DBNull)
+            {
+                return decimal.Zero;
+            }
+            return (System.Decimal)Rdr;
+        }
+        public int validarNullInt(object Rdr)
+        {
+            if (Rdr is DBNull)
+            {
+                return 0;
+            }
+            return (int)Rdr;
+        }
+
+        ///Fin Validaciones Null
     }
 }

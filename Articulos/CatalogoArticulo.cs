@@ -26,17 +26,16 @@ namespace Articulos
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.ID = (int)datos.Lector["ID"];
-                    aux.Nombre = (string)validarNull(datos.Lector, "Nombre");
-                    //aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = (string)datos.Lector["Marca"];
-
+                    aux.Marc = new Marca();
                     aux.Categ = new Categoria();
-                    aux.Categ.Descripcion = (string)validarNull(datos.Lector,"Categoria") ?? string.Empty;
-                    ///aux.Categ.Descripcion = (string)datos.Lector["Categoria"];
-                    aux.Precio = (System.Decimal)datos.Lector["Precio"];
-                    aux.Imagen = (string)datos.Lector["ImagenUrl"];
+
+                    aux.ID = datos.validarNullInt(datos.Lector["ID"]);
+                    aux.Nombre = datos.validarNullString(datos.Lector["Nombre"]);
+                    aux.Descripcion = datos.validarNullString(datos.Lector["Descripcion"]);
+                    aux.Marc.Descripcion = datos.validarNullString(datos.Lector["Marca"]);
+                    aux.Categ.Descripcion = datos.validarNullString(datos.Lector["Categoria"]);
+                    aux.Imagen = datos.validarNullString(datos.Lector["ImagenUrl"]);
+                    aux.Precio = datos.validarNullDecimal(datos.Lector["Precio"]);
 
                     articulos.Add(aux);
                 }
@@ -49,13 +48,5 @@ namespace Articulos
             datos.Cerrar();
             return articulos;
         }
-
-        public object validarNull(SqlDataReader Rdr, string columna) {
-            if (!(Rdr[columna] is DBNull)) {
-                return Rdr[columna];
-            }
-            return null;
-        }
-
     }
 }

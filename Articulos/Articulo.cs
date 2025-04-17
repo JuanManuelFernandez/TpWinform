@@ -15,21 +15,9 @@ namespace Articulos
         public int ID { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string Marca { get; set; }
+        public Marca Marc { get; set; }
         public Categoria Categ { get; set; }
         public string Imagen { get; set; }
         public System.Decimal Precio { get; set; }
-
-        public Articulo() { }
-        public Articulo(int ID, string Nombre, string Descripcion, string Marca, Categoria Categ, string Imagenm, int Precio)
-        {
-            this.ID = ID;
-            this.Nombre = Nombre;
-            this.Descripcion = Descripcion;
-            this.Marca = Marca;
-            this.Categ = Categ;
-            this.Imagen = Imagen;
-            this.Precio = Precio;
-        }
     }
 }

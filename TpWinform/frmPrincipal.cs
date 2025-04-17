@@ -20,21 +20,8 @@ namespace TpWinform
         {
             InitializeComponent();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void cargarDatos()
         {
-            frmAgregar frm = new frmAgregar();
-            frm.ShowDialog();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            frmAgregar frm = new frmAgregar();
-            frm.Text = "Modificar";
-            frm.ShowDialog();
-        }
-
-        private void cargarDatos() { 
             CatalogoArticulo ejemplo = new CatalogoArticulo();
             try
             {
@@ -48,23 +35,34 @@ namespace TpWinform
             }
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-            cargarDatos();
-        }
-
         public void cargarImagen(string imagen) {
             try
             {
                 pbxImg.Load(imagen);
             }
-            catch (Exception er)
+            catch (Exception)
             {
 
                 pbxImg.Load("https://img.freepik.com/vector-premium/imagen-no-es-conjunto-iconos-disponibles-simbolo-vectorial-stock-fotos-faltante-defecto-estilo-relleno-delineado-negro-signo-no-encontro-imagen_268104-6708.jpg");
             }
         }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAgregar frm = new frmAgregar();
+            frm.ShowDialog();
+        }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            frmAgregar frm = new frmAgregar();
+            frm.Text = "Modificar";
+            frm.ShowDialog();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            cargarDatos();
+        }
         private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvDatos.CurrentRow != null) {
