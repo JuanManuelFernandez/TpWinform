@@ -50,7 +50,7 @@
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatos.ShowEditingIcon = false;
             this.dgvDatos.Size = new System.Drawing.Size(567, 277);
-            this.dgvDatos.TabIndex = 1;
+            this.dgvDatos.TabIndex = 0;
             this.dgvDatos.SelectionChanged += new System.EventHandler(this.dgvDatos_SelectionChanged);
             // 
             // btnAgregar
@@ -87,7 +87,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(692, 263);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.TabIndex = 0;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
@@ -96,7 +96,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(666, 237);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(121, 20);
-            this.txtBuscar.TabIndex = 6;
+            this.txtBuscar.TabIndex = 7;
             // 
             // cmbBuscar1
             // 
@@ -105,7 +105,7 @@
             this.cmbBuscar1.Location = new System.Drawing.Point(666, 179);
             this.cmbBuscar1.Name = "cmbBuscar1";
             this.cmbBuscar1.Size = new System.Drawing.Size(121, 21);
-            this.cmbBuscar1.TabIndex = 7;
+            this.cmbBuscar1.TabIndex = 5;
             // 
             // cmbBuscar2
             // 
@@ -114,7 +114,7 @@
             this.cmbBuscar2.Location = new System.Drawing.Point(666, 206);
             this.cmbBuscar2.Name = "cmbBuscar2";
             this.cmbBuscar2.Size = new System.Drawing.Size(121, 21);
-            this.cmbBuscar2.TabIndex = 8;
+            this.cmbBuscar2.TabIndex = 6;
             // 
             // pbxImg
             // 

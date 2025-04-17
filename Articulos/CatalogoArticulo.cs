@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using BaseDeDatos;
 using Categorias;
@@ -18,7 +19,7 @@ namespace Articulos
         public List<Articulo> listar(){
             articulos = new List<Articulo>();
             datos.Conectar();
-            datos.Consultar("select A.ID, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio, I.ImagenUrl from ARTICULOS A left join MARCAS M on A.IDMarca = M.ID left join CATEGORIAS C on A.IdCategoria = C.Id left join IMAGENES I on A.Id = I.IdArticulo\r\n");
+            datos.Consultar("select A.ID, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio, I.ImagenUrl from ARTICULOS A left join MARCAS M on A.IDMarca = M.ID left join CATEGORIAS C on A.IdCategoria = C.Id left join IMAGENES I on A.Id = I.IdArticulo\r\n");
             datos.Leer();
 
             try
@@ -30,6 +31,7 @@ namespace Articulos
                     aux.Categ = new Categoria();
 
                     aux.ID = datos.validarNullInt(datos.Lector["ID"]);
+                    aux.Codigo = datos.validarNullString(datos.Lector["Codigo"]);
                     aux.Nombre = datos.validarNullString(datos.Lector["Nombre"]);
                     aux.Descripcion = datos.validarNullString(datos.Lector["Descripcion"]);
                     aux.Marc.Descripcion = datos.validarNullString(datos.Lector["Marca"]);
@@ -47,6 +49,38 @@ namespace Articulos
             }
             datos.Cerrar();
             return articulos;
+        }
+        public void agregarArticulo(Articulo aux) {
+            CatalogoArticulo articulo = new CatalogoArticulo();
+            List<Articulo> art = new List<Articulo>(); 
+            try
+            {
+                datos.Conectar();
+                datos.Consultar("insert into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) values (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @IdPrecio)");
+                datos.setearParametro("@Codigo", aux.Codigo);
+                datos.setearParametro("@Nombre", aux.Nombre);
+                datos.setearParametro("@Descripcion", aux.Descripcion);
+                datos.setearParametro("@IdMarca", aux.Marc.Id);
+                datos.setearParametro("@IDCategoria", aux.Categ.Id);
+                datos.setearParametro("@IdPrecio", aux.Precio);
+                datos.EjecutarNonQuery();
+                datos.Cerrar();
+                ///SEGUIR
+                datos.Conectar();
+                art = articulo.listar();
+                datos.Consultar("insert into Imagenes (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl)");
+                datos.setearParametro("@IdArticulo", art[art.Count - 1].ID);
+                datos.setearParametro("@ImagenUrl", aux.Imagen);
+                datos.EjecutarNonQuery();
+            }
+            catch (Exception er)
+            {
+
+                throw er;
+            }
+            finally {
+                datos.Cerrar();
+            }
         }
     }
 }
