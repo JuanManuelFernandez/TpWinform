@@ -29,6 +29,8 @@ namespace TpWinform
         public frmAgregar(Articulo art)
         {
             InitializeComponent();
+            btnAgregar.Text = "Modificar";
+            nuevo = art;
         }
 
         private void txtImagen_Leave(object sender, EventArgs e)
@@ -44,7 +46,6 @@ namespace TpWinform
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             datos = new CatalogoArticulo();
-            nuevo = new Articulo();
             datMarca = new CatalogoMarca();
             datCateg = new CatalogoCategoria();
             if ((datCateg.validarRepetido(cboCategoria.Text))&&(datMarca.validarRepetido(cboMarca.Text))) {
@@ -60,7 +61,15 @@ namespace TpWinform
             nuevo.Imagen = txtImagen.Text;
             nuevo.Precio = Decimal.Parse(txtPrecio.Text);
 
-            datos.agregarArticulo(nuevo);
+            if (nuevo.ID != 0)
+            {
+                datos.modificar(nuevo);
+                MessageBox.Show("Modificado Correctamente.");
+            }
+            else {
+                datos.agregarArticulo(nuevo);
+                MessageBox.Show("Agregado Correctamente.");
+            }
 
             /// SI NO ENCUENTRA EL DIRECTORIO QUE LO CREE
             if (archivo != null && !(txtImagen.Text.ToLower().Contains("http")))
@@ -84,8 +93,27 @@ namespace TpWinform
 
         private void frmAgregar_Load(object sender, EventArgs e)
         {
-            CargarDatosMarca();
-            CargarDatosCategoria();
+            try
+            {
+                CargarDatosMarca();
+                CargarDatosCategoria();
+
+                if (nuevo != null) { 
+                    txtCodigo.Text = nuevo.Codigo.ToString();
+                    txtNombre.Text = nuevo.Nombre;
+                    txtDescripcion.Text = nuevo.Descripcion;
+                    cboMarca.Text = nuevo.Marc.Descripcion;
+                    cboCategoria.Text = nuevo.Categ.Descripcion;
+                    txtImagen.Text = nuevo.Imagen;
+                    txtPrecio.Text = nuevo.Precio.ToString();
+                    cargarImagen(nuevo.Imagen);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnAgrMarca_Click(object sender, EventArgs e)

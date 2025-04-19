@@ -13,11 +13,12 @@ namespace Articulos
 {
     public class CatalogoArticulo
     {
-        private List<Articulo> articulos;
-        private Catalogo datos = new Catalogo();
+        private List<Articulo> articulos = null;
+        private Catalogo datos = null;
 
         public List<Articulo> listar(){
             articulos = new List<Articulo>();
+            datos = new Catalogo(); 
             datos.Conectar();
             datos.Consultar("select A.ID, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio, I.ImagenUrl from ARTICULOS A left join MARCAS M on A.IDMarca = M.ID left join CATEGORIAS C on A.IdCategoria = C.Id left join IMAGENES I on A.Id = I.IdArticulo\r\n");
             datos.Leer();
@@ -51,7 +52,7 @@ namespace Articulos
             return articulos;
         }
         public void agregarArticulo(Articulo aux) { 
-            CatalogoArticulo articulo = new CatalogoArticulo();
+            datos = new Catalogo();
             try
             {
                 datos.Conectar();
@@ -66,7 +67,7 @@ namespace Articulos
                 datos.Cerrar();
 
                 datos.Conectar();
-                List<Articulo> art = articulo.listar();
+                List<Articulo> art = listar();
                 datos.Consultar("insert into Imagenes (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl)");
                 datos.setearParametro("@IdArticulo", art[art.Count - 1].ID);
                 datos.setearParametro("@ImagenUrl", aux.Imagen);
@@ -83,6 +84,7 @@ namespace Articulos
         }
         public void EliminarArticulo(int id)
         {
+            datos = new Catalogo();
             try
             {
                 Catalogo datos = new Catalogo();
@@ -98,6 +100,35 @@ namespace Articulos
                 datos.setearParametro("IdArticulo", id);
                 datos.EjecutarNonQuery();
 
+                datos.Cerrar();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public void modificar(Articulo art) {
+            datos = new Catalogo();
+            try
+            {
+                datos.Conectar();
+                datos.Consultar("update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio where Id = @ID");
+                datos.setearParametro("@Codigo",art.Codigo);
+                datos.setearParametro("@Nombre", art.Nombre);
+                datos.setearParametro("@Descripcion", art.Descripcion);
+                datos.setearParametro("@IdMarca", art.Marc.Id);
+                datos.setearParametro("@IdCategoria", art.Categ.Id);
+                datos.setearParametro("@Precio", art.Precio);
+                datos.setearParametro("@ID",art.ID);
+                datos.EjecutarNonQuery();
+                datos.Cerrar();
+
+                datos.Conectar();
+                datos.Consultar("update IMAGENES set ImagenUrl = @ImagenUrl where IdArticulo = @IdArticulo");
+                datos.setearParametro("@IdArticulo",art.ID);
+                datos.setearParametro("@ImagenUrl",art.Imagen);
+                datos.EjecutarNonQuery();
                 datos.Cerrar();
             }
             catch (Exception)
