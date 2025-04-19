@@ -22,6 +22,7 @@ namespace TpWinform
         private CatalogoMarca datMarca = null;
         private CatalogoCategoria datCateg = null;
         private OpenFileDialog archivo = null;
+        private bool modificar = false;
         public frmAgregar()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace TpWinform
             InitializeComponent();
             btnAgregar.Text = "Modificar";
             nuevo = art;
+            modificar = true;
         }
 
         private void txtImagen_Leave(object sender, EventArgs e)
@@ -45,37 +47,56 @@ namespace TpWinform
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            datos = new CatalogoArticulo();
-            datMarca = new CatalogoMarca();
-            datCateg = new CatalogoCategoria();
-            if ((datCateg.validarRepetido(cboCategoria.Text))&&(datMarca.validarRepetido(cboMarca.Text))) {
-                MessageBox.Show("Ingrese la marca y/o la categoria por favor");
-                return;
-            }
-
-            nuevo.Codigo = txtCodigo.Text;
-            nuevo.Nombre = txtNombre.Text;
-            nuevo.Descripcion = txtDescripcion.Text;
-            nuevo.Marc = (Marca)cboMarca.SelectedItem;
-            nuevo.Categ = (Categoria)cboCategoria.SelectedItem;
-            nuevo.Imagen = txtImagen.Text;
-            nuevo.Precio = Decimal.Parse(txtPrecio.Text);
-
-            if (nuevo.ID != 0)
+            try
             {
-                datos.modificar(nuevo);
-                MessageBox.Show("Modificado Correctamente.");
-            }
-            else {
-                datos.agregarArticulo(nuevo);
-                MessageBox.Show("Agregado Correctamente.");
-            }
+                if (!modificar) {
+                    nuevo = new Articulo();
+                }
+                datos = new CatalogoArticulo();
+                datMarca = new CatalogoMarca();
+                datCateg = new CatalogoCategoria();
+                if ((datCateg.validarRepetido(cboCategoria.Text)) && (datMarca.validarRepetido(cboMarca.Text)))
+                {
+                    MessageBox.Show("Agregue la marca y/o la categoria por favor (+)");
+                    return;
+                }
 
-            /// SI NO ENCUENTRA EL DIRECTORIO QUE LO CREE
-            if (archivo != null && !(txtImagen.Text.ToLower().Contains("http")))
-                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+                if (validarVacio(txtCodigo) || validarVacio(txtNombre) || validarVacio(txtDescripcion) || validarVacio(txtPrecio))
+                {
+                    MessageBox.Show("Por favor llenar los campos faltantes.");
+                    return;
+                }
 
-            Close();
+                nuevo.Codigo = txtCodigo.Text;
+                nuevo.Nombre = txtNombre.Text;
+                nuevo.Descripcion = txtDescripcion.Text;
+                nuevo.Marc = (Marca)cboMarca.SelectedItem;
+                nuevo.Categ = (Categoria)cboCategoria.SelectedItem;
+                nuevo.Imagen = txtImagen.Text;
+                nuevo.Precio = Decimal.Parse(txtPrecio.Text);
+
+
+                if (nuevo.ID != 0)
+                {
+                    datos.modificar(nuevo);
+                    MessageBox.Show("Modificado Correctamente.");
+                }
+                else
+                {
+                    datos.agregarArticulo(nuevo);
+                    MessageBox.Show("Agregado Correctamente.");
+                }
+
+                /// SI NO ENCUENTRA EL DIRECTORIO QUE LO CREE
+                if (archivo != null && !(txtImagen.Text.ToLower().Contains("http")))
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+
+                Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Dato ingresado no valido.");
+            }
         }
 
         private void cargarImagen(string URL) {
@@ -120,13 +141,16 @@ namespace TpWinform
         {
             datMarca = new CatalogoMarca();
             string valor = cboMarca.Text;
-            if (datMarca.validarRepetido(valor)){ 
+            if (validarVacio(cboMarca))
+            {
+                MessageBox.Show("Faltan datos");
+                return;
+            }
+            if (datMarca.validarRepetido(valor)) {
                 datMarca.agregarMarca(valor);
                 CargarDatosMarca();
                 cboMarca.Text = valor;
-            }
-            else
-            {
+            } else if(!(datMarca.validarRepetido(valor))){ 
                 MessageBox.Show("Ya se encuentra en la base de datos");
                 CargarDatosMarca();
             }
@@ -166,15 +190,20 @@ namespace TpWinform
         {
             datCateg = new CatalogoCategoria();
             string valor = cboCategoria.Text;
+            if (validarVacio(cboCategoria))
+            {
+                MessageBox.Show("Faltan datos");
+                return;
+            }
             if (datCateg.validarRepetido(valor)) { 
                 datCateg.agregarCategoria(valor);
                 CargarDatosCategoria();
                 cboCategoria.Text = valor;
             }
-            else
+            else if (!(datCateg.validarRepetido(valor)))
             {
                 MessageBox.Show("Ya se encuentra en la base de datos");
-                CargarDatosCategoria();
+                CargarDatosMarca();
             }
         }
 
@@ -186,6 +215,21 @@ namespace TpWinform
                 txtImagen.Text = archivo.FileName;
                 cargarImagen(archivo.FileName);
             }
+        }
+
+        private bool validarVacio(TextBox txt) {
+            if (string.IsNullOrEmpty(txt.Text)) {
+                return true;
+            }
+            return false;
+        }
+        private bool validarVacio(ComboBox txt)
+        {
+            if (string.IsNullOrEmpty(txt.Text))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

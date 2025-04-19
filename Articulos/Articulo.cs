@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -16,7 +17,9 @@ namespace Articulos
         public string Codigo { get;set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        [DisplayName("Marca")]
         public Marca Marc { get; set; }
+        [DisplayName("Categoria")]
         public Categoria Categ { get; set; }
         public string Imagen { get; set; }
         public System.Decimal Precio { get; set; }

@@ -34,6 +34,9 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pbxImg = new System.Windows.Forms.PictureBox();
+            this.cmbCampo = new System.Windows.Forms.ComboBox();
+            this.cmbCriterio = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +51,7 @@
             this.dgvDatos.ShowEditingIcon = false;
             this.dgvDatos.Size = new System.Drawing.Size(567, 277);
             this.dgvDatos.TabIndex = 0;
+            this.dgvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellDoubleClick);
             this.dgvDatos.SelectionChanged += new System.EventHandler(this.dgvDatos_SelectionChanged);
             // 
             // btnAgregar
@@ -82,7 +86,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(712, 179);
+            this.btnBuscar.Location = new System.Drawing.Point(712, 266);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 0;
@@ -98,17 +102,48 @@
             this.pbxImg.TabIndex = 9;
             this.pbxImg.TabStop = false;
             // 
+            // cmbCampo
+            // 
+            this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCampo.FormattingEnabled = true;
+            this.cmbCampo.Location = new System.Drawing.Point(666, 181);
+            this.cmbCampo.Name = "cmbCampo";
+            this.cmbCampo.Size = new System.Drawing.Size(121, 21);
+            this.cmbCampo.TabIndex = 10;
+            // 
+            // cmbCriterio
+            // 
+            this.cmbCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCriterio.FormattingEnabled = true;
+            this.cmbCriterio.Location = new System.Drawing.Point(666, 208);
+            this.cmbCriterio.Name = "cmbCriterio";
+            this.cmbCriterio.Size = new System.Drawing.Size(121, 21);
+            this.cmbCriterio.TabIndex = 11;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(666, 240);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(121, 20);
+            this.txtBuscar.TabIndex = 12;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 302);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.cmbCriterio);
+            this.Controls.Add(this.cmbCampo);
             this.Controls.Add(this.pbxImg);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvDatos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Negocio";
@@ -116,6 +151,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -127,5 +163,8 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox pbxImg;
+        private System.Windows.Forms.ComboBox cmbCampo;
+        private System.Windows.Forms.ComboBox cmbCriterio;
+        private System.Windows.Forms.TextBox txtBuscar;
     }
 }

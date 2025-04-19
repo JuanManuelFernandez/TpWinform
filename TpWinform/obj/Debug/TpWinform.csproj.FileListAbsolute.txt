@@ -40,3 +40,4 @@ C:\Users\juanm\Desktop\TpWinform-main\TpWinform-main\TpWinform\obj\Debug\TpWinfo
 C:\Users\juanm\Desktop\TpWinform-main\TpWinform-main\TpWinform\obj\Debug\TpWinform.csproj.Up2Date
 C:\Users\juanm\Desktop\TpWinform-main\TpWinform-main\TpWinform\obj\Debug\TpWinform.exe
 C:\Users\juanm\Desktop\TpWinform-main\TpWinform-main\TpWinform\obj\Debug\TpWinform.pdb
+C:\Users\Facuc\Documents\GitHub\TpWinform\TpWinform\obj\Debug\TpWinform.frmDetalle.resources

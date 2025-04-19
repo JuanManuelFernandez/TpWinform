@@ -71,7 +71,7 @@ namespace TpWinform
             }
             else 
             {
-                MessageBox.Show(("NO HAY NADA SELECCIONAD"));
+                MessageBox.Show(("No hay ningun elemnto seleccionado."));
             }
         }
 
@@ -108,10 +108,18 @@ namespace TpWinform
             }
             else
             {
-                MessageBox.Show(("NO HAY NADA SELECCIONAD"));
+                MessageBox.Show(("No hay ningun elemnto seleccionado."));
             }
             
             
+        }
+
+        private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDatos.CurrentRow != null) {
+                frmDetalle nuevo = new frmDetalle((Articulo)dgvDatos.CurrentRow.DataBoundItem);
+                nuevo.ShowDialog();
+            }
         }
     }
 }
