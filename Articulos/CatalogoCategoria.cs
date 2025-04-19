@@ -10,10 +10,9 @@ namespace Articulos
 {
     public class CatalogoCategoria
     {
-        private List<Categoria> categorias = null;
+        private List<Categoria> categorias = new List<Categoria>();
+        private Catalogo datos = new Catalogo();
         public List<Categoria> Listar() { 
-            categorias = new List<Categoria>();
-            Catalogo datos = new Catalogo();
             try
             {
                 datos.Conectar();
@@ -34,6 +33,26 @@ namespace Articulos
             }
             datos.Cerrar();
             return categorias;
+        }
+        public void agregarCategoria(string valor)
+        {
+            if (!(validarRepetido(valor)))
+                return;
+            datos.Conectar();
+            datos.Consultar("Insert into Categorias (Descripcion) values (@Descripcion)");
+            datos.setearParametro("@Descripcion", valor);
+            datos.EjecutarNonQuery();
+            datos.Cerrar();
+
+        }
+        public bool validarRepetido(string valor) {
+            List<Categoria> obj = Listar();
+            foreach (Categoria lis in obj) {
+                if (valor == lis.Descripcion) { 
+                    return false;
+                }
+            }
+            return true;
         }
 
     }

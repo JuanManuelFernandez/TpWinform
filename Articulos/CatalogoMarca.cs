@@ -10,8 +10,8 @@ namespace Articulos
     public class CatalogoMarca
     {
         private List<Marca> marcas = new List<Marca>();
+        private Catalogo datos = new Catalogo();
         public List<Marca> Listar() {
-            Catalogo datos = new Catalogo();
             Marca aux;
             try
             {
@@ -32,6 +32,26 @@ namespace Articulos
             }
             
             return marcas;
+        }
+        public void agregarMarca(string valor) {
+            if (!(validarRepetido(valor)))
+                return;
+            datos.Conectar();
+            datos.Consultar("Insert into Marcas (Descripcion) values (@Descripcion)");
+            datos.setearParametro("@Descripcion",valor);
+            datos.EjecutarNonQuery();
+            datos.Cerrar();
+            
+        }
+
+        public bool validarRepetido(string valor) {
+            List<Marca> obj = Listar();
+            foreach (Marca lis in obj) {
+                if (lis.Descripcion == valor) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

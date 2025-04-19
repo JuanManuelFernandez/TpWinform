@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseDeDatos;
 using Articulos;
+using System.IO;
 
 namespace TpWinform
 {
@@ -66,6 +67,7 @@ namespace TpWinform
                 frmAgregar frm = new frmAgregar(seleccion);
                 frm.Text = "Modificar";
                 frm.ShowDialog();
+                cargarDatos();
             }
             else 
             {
@@ -79,8 +81,11 @@ namespace TpWinform
         }
         private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo aux = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
-            cargarImagen(aux.Imagen);
+            if (dgvDatos.CurrentRow != null)
+            {
+                Articulo aux = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
+                cargarImagen(aux.Imagen);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -93,6 +98,7 @@ namespace TpWinform
                 {
                     seleccionado = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
                     Articulo.EliminarArticulo(seleccionado.ID);
+                    cargarDatos();
                 }
                 catch (Exception)
                 {
@@ -104,7 +110,7 @@ namespace TpWinform
             {
                 MessageBox.Show(("NO HAY NADA SELECCIONAD"));
             }
-            cargarDatos();
+            
             
         }
     }

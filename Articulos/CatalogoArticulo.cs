@@ -13,8 +13,8 @@ namespace Articulos
 {
     public class CatalogoArticulo
     {
-        List<Articulo> articulos;
-        Catalogo datos = new Catalogo();
+        private List<Articulo> articulos;
+        private Catalogo datos = new Catalogo();
 
         public List<Articulo> listar(){
             articulos = new List<Articulo>();
@@ -52,7 +52,6 @@ namespace Articulos
         }
         public void agregarArticulo(Articulo aux) { 
             CatalogoArticulo articulo = new CatalogoArticulo();
-            List<Articulo> art = new List<Articulo>(); 
             try
             {
                 datos.Conectar();
@@ -65,9 +64,9 @@ namespace Articulos
                 datos.setearParametro("@IdPrecio", aux.Precio);
                 datos.EjecutarNonQuery();
                 datos.Cerrar();
-                ///SEGUIR
+
                 datos.Conectar();
-                art = articulo.listar();
+                List<Articulo> art = articulo.listar();
                 datos.Consultar("insert into Imagenes (IdArticulo, ImagenUrl) values (@IdArticulo, @ImagenUrl)");
                 datos.setearParametro("@IdArticulo", art[art.Count - 1].ID);
                 datos.setearParametro("@ImagenUrl", aux.Imagen);
