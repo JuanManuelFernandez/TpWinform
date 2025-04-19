@@ -7,24 +7,24 @@
       "RelativeMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|solutionrelative:tpwinform\\frmagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|c:\\users\\facuc\\documents\\github\\tpwinform\\tpwinform\\frmagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|solutionrelative:tpwinform\\frmagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|c:\\users\\facuc\\documents\\github\\tpwinform\\tpwinform\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|solutionrelative:tpwinform\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|c:\\users\\facuc\\documents\\github\\tpwinform\\articulos\\catalogoarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\articulos\\catalogoarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|solutionrelative:articulos\\catalogoarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\articulos\\catalogocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|solutionrelative:articulos\\catalogocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\articulos\\catalogomarca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|solutionrelative:articulos\\catalogomarca.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|c:\\users\\facuc\\documents\\github\\tpwinform\\articulos\\catalogocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{040B1A05-B5CC-4573-B0A4-6352AB132755}|Articulos\\Articulos.csproj|solutionrelative:articulos\\catalogocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\tpwinform\\frmagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|solutionrelative:tpwinform\\frmagregar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\tpwinform\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2ECCE32A-BC80-4F5B-9810-794DC6C00948}|TpWinform\\TpWinform.csproj|solutionrelative:tpwinform\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,24 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\TpWinform\\App.config",
-              "RelativeDocumentMoniker": "TpWinform\\App.config",
-              "ToolTip": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\TpWinform\\App.config",
-              "RelativeToolTip": "TpWinform\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-19T00:07:46.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "frmAgregar.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\TpWinform\\frmAgregar.cs",
               "RelativeDocumentMoniker": "TpWinform\\frmAgregar.cs",
@@ -69,48 +56,61 @@
               "RelativeDocumentMoniker": "TpWinform\\frmAgregar.cs",
               "ToolTip": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\TpWinform\\frmAgregar.cs",
               "RelativeToolTip": "TpWinform\\frmAgregar.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAqwD4AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAAAFcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-18T21:48:53.625Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "CatalogoArticulo.cs",
               "DocumentMoniker": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\Articulos\\CatalogoArticulo.cs",
               "RelativeDocumentMoniker": "Articulos\\CatalogoArticulo.cs",
               "ToolTip": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\Articulos\\CatalogoArticulo.cs",
               "RelativeToolTip": "Articulos\\CatalogoArticulo.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwBwAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAqwE0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T13:27:47.444Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "CatalogoCategoria.cs",
               "DocumentMoniker": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\Articulos\\CatalogoCategoria.cs",
               "RelativeDocumentMoniker": "Articulos\\CatalogoCategoria.cs",
               "ToolTip": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\Articulos\\CatalogoCategoria.cs",
               "RelativeToolTip": "Articulos\\CatalogoCategoria.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwA0AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAIA5wDQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-18T21:30:24.082Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "CatalogoMarca.cs",
               "DocumentMoniker": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\Articulos\\CatalogoMarca.cs",
               "RelativeDocumentMoniker": "Articulos\\CatalogoMarca.cs",
               "ToolTip": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\Articulos\\CatalogoMarca.cs",
               "RelativeToolTip": "Articulos\\CatalogoMarca.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAQwAsAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAIAwwDIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T14:55:12.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\TpWinform\\App.config",
+              "RelativeDocumentMoniker": "TpWinform\\App.config",
+              "ToolTip": "C:\\Users\\Facuc\\Documents\\GitHub\\TpWinform\\TpWinform\\App.config",
+              "RelativeToolTip": "TpWinform\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-04-19T00:07:46.591Z",
               "EditorCaption": ""
             }
           ]

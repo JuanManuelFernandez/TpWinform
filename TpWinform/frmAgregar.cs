@@ -47,7 +47,7 @@ namespace TpWinform
             nuevo = new Articulo();
             datMarca = new CatalogoMarca();
             datCateg = new CatalogoCategoria();
-            if ((datCateg.validarRepetido(cboCategoria.Text))||(datMarca.validarRepetido(cboMarca.Text))) {
+            if ((datCateg.validarRepetido(cboCategoria.Text))&&(datMarca.validarRepetido(cboMarca.Text))) {
                 MessageBox.Show("Ingrese la marca y/o la categoria por favor");
                 return;
             }
@@ -84,7 +84,8 @@ namespace TpWinform
 
         private void frmAgregar_Load(object sender, EventArgs e)
         {
-            CargarDatosCBO();
+            CargarDatosMarca();
+            CargarDatosCategoria();
         }
 
         private void btnAgrMarca_Click(object sender, EventArgs e)
@@ -93,19 +94,35 @@ namespace TpWinform
             string valor = cboMarca.Text;
             if (datMarca.validarRepetido(valor)){ 
                 datMarca.agregarMarca(valor);
+                CargarDatosMarca();
                 cboMarca.Text = valor;
-            }else
+            }
+            else
+            {
                 MessageBox.Show("Ya se encuentra en la base de datos");
+                CargarDatosMarca();
+            }
         }
-
-        private void CargarDatosCBO() {
+        private void CargarDatosCategoria()
+        {
             CatalogoCategoria categ = new CatalogoCategoria();
-            CatalogoMarca marc = new CatalogoMarca();
             try
             {
                 cboCategoria.DataSource = categ.Listar();
                 cboCategoria.ValueMember = "Id";
                 cboCategoria.DisplayMember = "Descripcion";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void CargarDatosMarca()
+        {
+            CatalogoMarca marc = new CatalogoMarca();
+            try
+            {
                 cboMarca.DataSource = marc.Listar();
                 cboMarca.ValueMember = "Id";
                 cboMarca.DisplayMember = "Descripcion";
@@ -121,11 +138,16 @@ namespace TpWinform
         {
             datCateg = new CatalogoCategoria();
             string valor = cboCategoria.Text;
-            if (datCateg.validarRepetido(valor))
+            if (datCateg.validarRepetido(valor)) { 
                 datCateg.agregarCategoria(valor);
+                CargarDatosCategoria();
+                cboCategoria.Text = valor;
+            }
             else
+            {
                 MessageBox.Show("Ya se encuentra en la base de datos");
-            cboCategoria.Text = valor;
+                CargarDatosCategoria();
+            }
         }
 
         private void btnImagen_Click(object sender, EventArgs e)

@@ -47,7 +47,7 @@ namespace Articulos
         public bool validarRepetido(string valor) {
             List<Marca> obj = Listar();
             foreach (Marca lis in obj) {
-                if (lis.Descripcion == valor) {
+                if (lis.Descripcion.ToUpper() == valor.ToUpper()) {
                     return false;
                 }
             }
