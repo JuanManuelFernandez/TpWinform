@@ -17,19 +17,19 @@ namespace TpWinform
     {
 
         private List<Articulo> articulos;
+        private CatalogoArticulo catalogo;
         public frmPrincipal()
         {
             InitializeComponent();
         }
         private void cargarDatos()
         {
-            CatalogoArticulo ejemplo = new CatalogoArticulo();
+            catalogo = new CatalogoArticulo();
             try
             {
-                articulos = ejemplo.listar();
+                articulos = catalogo.listar();
                 dgvDatos.DataSource = articulos;
                 ocultarColumnas();
-                //CARGAR IMAGEN "NO PHOTO" CUANDO NO HAY DATOS CARGADOS
             }
             catch (Exception er)
             {
@@ -78,6 +78,13 @@ namespace TpWinform
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             cargarDatos();
+            cmbCampo.Items.Add("ID");
+            cmbCampo.Items.Add("Codigo");
+            cmbCampo.Items.Add("Nombre");
+            cmbCampo.Items.Add("Descripcion");
+            cmbCampo.Items.Add("Marca");
+            cmbCampo.Items.Add("Categoria");
+            cmbCampo.Items.Add("Precio");
         }
         private void dgvDatos_SelectionChanged(object sender, EventArgs e)
         {
@@ -92,12 +99,12 @@ namespace TpWinform
         {
             if (dgvDatos.CurrentRow != null)
             {
-                CatalogoArticulo Articulo = new CatalogoArticulo();
+                catalogo = new CatalogoArticulo();
                 Articulo seleccionado;
                 try
                 {
                     seleccionado = (Articulo)dgvDatos.CurrentRow.DataBoundItem;
-                    Articulo.EliminarArticulo(seleccionado.ID);
+                    catalogo.EliminarArticulo(seleccionado.ID);
                     cargarDatos();
                 }
                 catch (Exception)
@@ -120,6 +127,40 @@ namespace TpWinform
                 frmDetalle nuevo = new frmDetalle((Articulo)dgvDatos.CurrentRow.DataBoundItem);
                 nuevo.ShowDialog();
             }
+        }
+
+        private void cmbCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCampo.Text == "ID" || cmbCampo.Text == "Precio") {
+                cmbCriterio.Items.Clear();
+                cmbCriterio.Items.Add("Mayor a");
+                cmbCriterio.Items.Add("Menor a");
+                cmbCriterio.Items.Add("Igual a");
+            } else {
+                cmbCriterio.Items.Clear();
+                cmbCriterio.Items.Add("Empieza con");
+                cmbCriterio.Items.Add("Termina con");
+                cmbCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            catalogo = new CatalogoArticulo();
+            try
+            {
+                dgvDatos.DataSource = catalogo.buscarArticulo(cmbCampo.Text,cmbCriterio.Text,txtBuscar.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Elemento ingresado no valido.");
+            }
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cargarDatos();
         }
     }
 }

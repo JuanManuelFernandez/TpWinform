@@ -137,5 +137,144 @@ namespace Articulos
                 throw;
             }
         }
+        public List<Articulo> buscarArticulo(string campo, string criterio, string valor) {
+            datos = new Catalogo();
+            articulos = new List<Articulo>();
+            try
+            {
+                datos.Conectar();
+                string consulta = "select A.ID, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion as Marca, C.Descripcion as Categoria, A.Precio, I.ImagenUrl from ARTICULOS A left join MARCAS M on A.IDMarca = M.ID left join CATEGORIAS C on A.IdCategoria = C.Id left join IMAGENES I on A.Id = I.IdArticulo where ";
+                switch (campo)
+                {
+                    case "ID":
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+                                consulta += "A.ID > " + valor;
+                                break;
+                            case "Menor a":
+                                consulta += "A.ID < " + valor;
+                                break;
+                            case "Igual a":
+                                consulta += "A.ID = " + valor;
+                                break;
+                        }
+                        break;
+                    case "Codigo":
+                        switch (criterio)
+                        {
+                            case "Empieza con":
+                                consulta += "A.Codigo like '" + valor + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += "A.Codigo like '%" + valor + "'";
+                                break;
+                            case "Contiene":
+                                consulta += "A.Codigo like '%" + valor + "%'";
+                                break;
+                        }
+                        break;
+                    case "Nombre":
+                        switch (criterio)
+                        {
+                            case "Empieza con":
+                                consulta += "A.Nombre like '" + valor + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += "A.Nombre like '%" + valor + "'";
+                                break;
+                            case "Contiene":
+                                consulta += "A.Nombre like '%" + valor + "%'";
+                                break;
+                        }
+                        break;
+                    case "Descripcion":
+                        switch (criterio)
+                        {
+                            case "Empieza con":
+                                consulta += "A.Descripcion like '" + valor + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += "A.Descripcion like '%" + valor + "'";
+                                break;
+                            case "Contiene":
+                                consulta += "A.Descripcion like '%" + valor + "%'";
+                                break;
+                        }
+                        break;
+                    case "Marca":
+                        switch (criterio)
+                        {
+                            case "Empieza con":
+                                consulta += "M.Descripcion like '" + valor + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += "M.Descripcion like '%" + valor + "'";
+                                break;
+                            case "Contiene":
+                                consulta += "M.Descripcion like '%" + valor + "%'";
+                                break;
+                        }
+                        break;
+                    case "Categoria":
+                        switch (criterio)
+                        {
+                            case "Empieza con":
+                                consulta += "C.Descripcion like '" + valor + "%'";
+                                break;
+                            case "Termina con":
+                                consulta += "C.Descripcion like '%" + valor + "'";
+                                break;
+                            case "Contiene":
+                                consulta += "C.Descripcion like '%" + valor + "%'";
+                                break;
+                        }
+                        break;
+                    case "Precio":
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+                                consulta += "A.Precio > " + valor;
+                                break;
+                            case "Menor a":
+                                consulta += "A.Precio < " + valor;
+                                break;
+                            case "Igual a":
+                                consulta += "A.precio = " + valor;
+                                break;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+                datos.Consultar(consulta);
+                datos.Leer();
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Marc = new Marca();
+                    aux.Categ = new Categoria();
+
+                    aux.ID = datos.validarNullInt(datos.Lector["ID"]);
+                    aux.Codigo = datos.validarNullString(datos.Lector["Codigo"]);
+                    aux.Nombre = datos.validarNullString(datos.Lector["Nombre"]);
+                    aux.Descripcion = datos.validarNullString(datos.Lector["Descripcion"]);
+                    aux.Marc.Descripcion = datos.validarNullString(datos.Lector["Marca"]);
+                    aux.Categ.Descripcion = datos.validarNullString(datos.Lector["Categoria"]);
+                    aux.Imagen = datos.validarNullString(datos.Lector["ImagenUrl"]);
+                    aux.Precio = datos.validarNullDecimal(datos.Lector["Precio"]);
+
+                    articulos.Add(aux);
+                }
+
+                return articulos;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
