@@ -87,9 +87,14 @@ namespace TpWinform
                     MessageBox.Show("Agregado Correctamente.");
                 }
 
-                /// SI NO ENCUENTRA EL DIRECTORIO QUE LO CREE
-                if (archivo != null && !(txtImagen.Text.ToLower().Contains("http")))
+                string path = @"C:\TpWinforms-Imagenes\";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                if (archivo != null && !(txtImagen.Text.ToLower().Contains("http")) && !(File.Exists(path + archivo.SafeFileName)))
                     File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+
 
                 Close();
             }
