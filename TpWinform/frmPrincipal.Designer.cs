@@ -44,19 +44,19 @@
             // dgvDatos
             // 
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Location = new System.Drawing.Point(12, 12);
+            this.dgvDatos.Location = new System.Drawing.Point(11, 36);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDatos.ShowEditingIcon = false;
-            this.dgvDatos.Size = new System.Drawing.Size(567, 277);
+            this.dgvDatos.Size = new System.Drawing.Size(643, 277);
             this.dgvDatos.TabIndex = 0;
             this.dgvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellDoubleClick);
             this.dgvDatos.SelectionChanged += new System.EventHandler(this.dgvDatos_SelectionChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(585, 179);
+            this.btnAgregar.Location = new System.Drawing.Point(11, 319);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(585, 208);
+            this.btnModificar.Location = new System.Drawing.Point(92, 319);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(585, 237);
+            this.btnEliminar.Location = new System.Drawing.Point(173, 319);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 4;
@@ -86,7 +86,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(712, 266);
+            this.btnBuscar.Location = new System.Drawing.Point(348, 7);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 0;
@@ -96,9 +96,9 @@
             // 
             // pbxImg
             // 
-            this.pbxImg.Location = new System.Drawing.Point(585, 12);
+            this.pbxImg.Location = new System.Drawing.Point(660, 36);
             this.pbxImg.Name = "pbxImg";
-            this.pbxImg.Size = new System.Drawing.Size(202, 161);
+            this.pbxImg.Size = new System.Drawing.Size(284, 277);
             this.pbxImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImg.TabIndex = 9;
             this.pbxImg.TabStop = false;
@@ -107,9 +107,9 @@
             // 
             this.cmbCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCampo.FormattingEnabled = true;
-            this.cmbCampo.Location = new System.Drawing.Point(666, 181);
+            this.cmbCampo.Location = new System.Drawing.Point(11, 10);
             this.cmbCampo.Name = "cmbCampo";
-            this.cmbCampo.Size = new System.Drawing.Size(121, 21);
+            this.cmbCampo.Size = new System.Drawing.Size(99, 21);
             this.cmbCampo.TabIndex = 10;
             this.cmbCampo.SelectedIndexChanged += new System.EventHandler(this.cmbCampo_SelectedIndexChanged);
             // 
@@ -117,16 +117,16 @@
             // 
             this.cmbCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriterio.FormattingEnabled = true;
-            this.cmbCriterio.Location = new System.Drawing.Point(666, 208);
+            this.cmbCriterio.Location = new System.Drawing.Point(116, 10);
             this.cmbCriterio.Name = "cmbCriterio";
-            this.cmbCriterio.Size = new System.Drawing.Size(121, 21);
+            this.cmbCriterio.Size = new System.Drawing.Size(90, 21);
             this.cmbCriterio.TabIndex = 11;
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(666, 240);
+            this.txtBuscar.Location = new System.Drawing.Point(212, 10);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(121, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(130, 20);
             this.txtBuscar.TabIndex = 12;
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
@@ -134,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 302);
+            this.ClientSize = new System.Drawing.Size(956, 350);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.cmbCriterio);
             this.Controls.Add(this.cmbCampo);
